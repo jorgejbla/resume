@@ -1,0 +1,61 @@
+<html>
+<head>
+
+	<title>Your Resume</title>
+	<!-- script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script -->
+	<!-- script src="yourresume.js"></script -->
+	<script src="navigation.js"></script>
+	<script src="lstor.js"></script>
+	<link rel="stylesheet" type="text/css" href="yourresume.css" media="screen" />
+
+
+	
+</head>
+<body onload="restoreForm('s1');">
+
+	<header><h1>Your Resume</h1></header>
+	<div id="content">
+
+		<div id="mainData">
+			<h2>Step 1: your Name</h2>
+			<form name="myForm" id="myForm">
+				<p>
+					<label for="yourName">Name: </label>
+					<input type="text" id="yourName" name="yourName" placeholder="Jorge Blázquez" autofocus required/>				
+				</p>
+
+
+				<p>
+					<label for="email">Email </label>
+					<input type="email" id="email"  required>
+				</p>
+				<p>
+					<label for="tel">Telephone:</label>
+					<input type="tel" id="tel"
+					placeholder="(94) 412-2323"
+					pattern="^(?\d{2})?[-\s]\d{3}[-\s]\d{4}.*?\)"  required/>
+				</p>
+
+				<p>
+					<label for="tel">Website:</label>
+					<input id="url" type="url" placeholder="http://www.ibm.com"
+					pattern="(http|https|ftp)\:\/\/[a-zA-Z0-9\-\.\/]*"/>
+				</p>
+
+			</form>
+		</div>
+
+		<div id="navigation">
+			<div id="progress">
+	    		<progress id="pr" value="1" min="0" max="8">
+			</div>
+
+			<button id="previous" type="button" title="Previous" onclick="startF('s1','main');"><img src="img/ic_navigate_before_black_24dp_2x.png" /></button>
+
+			<button id="apply" type="button" title="Apply changes" onclick="saveChanges('s1');"><img src="img/ic_check_circle_white_24dp_2x.png" /></button>
+
+			<button id="next" type="button" title="Next" onclick="startF('s1','s2');"><img src="img/ic_navigate_next_black_24dp_2x.png" /></button>
+		</div>
+
+	</body>
+	</html>

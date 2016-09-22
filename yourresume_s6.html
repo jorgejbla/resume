@@ -1,0 +1,79 @@
+<html>
+<head>
+
+	<title>Your Resume</title>
+	<!-- script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script -->
+	<script src="yourresume.js"></script>
+	<script src="navigation.js"></script>
+	<script src="lstor.js"></script>
+	<link rel="stylesheet" type="text/css" href="yourresume.css" media="screen" />
+
+
+	
+</head>
+<body onload="init();">
+
+	<header><h1>Your Resume</h1></header>
+	<div id="content">
+		<div id="mainData">
+			<h2>Step 6: your Signature</h2>
+
+
+
+			<form name="myForm" id="myForm">
+
+				<canvas  id="mySignature" width="800" height="450"></canvas> 				
+
+
+
+
+			</form>
+		</div>
+
+		<div id="navigation">
+			<div id="progress">
+	    		<progress id="pr" value="6" min="0" max="8">
+			</div>
+
+			<button id="previous" type="button" title="Previous" onclick="startF('s6','s5');"><img src="img/ic_navigate_before_black_24dp_2x.png" /></button>
+
+			<button id="apply" type="button" title="Apply changes" onclick="saveChanges('s6');"><img src="img/ic_check_circle_white_24dp_2x.png" /></button>
+
+			<button id="next" type="button" title="Next" onclick="startF('s6','s7');"><img src="img/ic_navigate_next_black_24dp_2x.png" /></button>
+		</div>
+
+
+<script id="jsbin-javascript">
+//--------------------
+// GET USER MEDIA CODE
+//--------------------
+navigator.getUserMedia = ( navigator.getUserMedia ||
+	navigator.webkitGetUserMedia ||
+	navigator.mozGetUserMedia ||
+	navigator.msGetUserMedia);
+
+//---------------------
+// TAKE A SNAPSHOT CODE
+//---------------------
+var canvas, ctx, canvasSig, ctxSig;
+
+function init() {
+
+	canvasSig = document.getElementById('mySignature');
+	ctxSig = canvasSig.getContext('2d');
+
+	painting = false;
+
+	canvasSig.addEventListener('mousemove', handleMouseMove, false);
+	canvasSig.addEventListener('mousedown', clicked);
+	canvasSig.addEventListener('mouseup', released);    
+
+	initialize();
+}
+
+
+
+</script>
+
+	</body>
+	</html>

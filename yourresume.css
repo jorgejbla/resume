@@ -1,0 +1,295 @@
+	body {
+		font-family: Verdana, Arial, sans-serif;
+		padding:0;
+		margin:0;
+		text-align:center;
+	}
+
+	#signature canvas, #picture canvas, video {border:1px solid #000;}
+	h3 {
+		flex:1 100%;
+		align-self: stretch;
+	}
+
+	h2 {
+		border-bottom:2px solid blue;
+		color:blue;
+		margin:0;
+		padding: 0.4em 0;
+	}
+
+
+	div#droppableZone {
+		height: 64px;
+		width: 128px;
+		border: 4px dashed #000;
+		background-color: #eaeaea;
+		text-align: center;
+		cursor: move;
+		margin: 0 auto;
+	}
+	.dragged {
+		border: 1px dashed #000;
+		background-color: green;
+	}
+	.draggedOver {
+		border: 1px dashed #000;
+		background-color: green;
+	}  
+
+	.thumb {
+		border:1px dotted #000;
+		margin:2px;
+		width: 64px;
+		height:64px;
+	}
+
+
+	header {
+		display:flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		flex:1;	
+		margin:0;
+	}
+
+	h1 {
+		flex:1;
+		background-color:blue;
+		color:#fff;
+		padding:0.2em;
+		margin:0;
+	}
+
+	#left{
+		display:flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		flex:2;
+		padding:1em;
+	}
+
+	#right{
+		display:flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		flex:1;
+		padding:1em;
+	}
+
+	#mainData, #navigation{
+		padding:0;
+	}
+
+	#navigation {
+		background-color: blue;
+		padding: 1em 0 ;
+		position: fixed;
+		bottom:0;
+		left:0;
+		width: 100%;
+	}
+
+	#picture{
+		flex:2;
+		display:flex;
+		flex-direction: column;
+		flex-wrap: wrap;  
+		padding:1em;  
+	}
+
+
+
+	#camZone {
+	/*	flex:1;
+		display:flex;
+		flex-direction: row;
+		flex-wrap: wrap;   
+		align-items: center;
+		justify-content: center;     */
+	}
+
+	#dropZone {
+		flex:2;
+		display:flex;
+		flex-direction: row;
+		flex-wrap: wrap;   
+	}
+
+	#dropPhoto {
+		text-align: center;
+	}
+
+	#camara {
+		display:inline-block;
+		margin: 1%;
+	}
+
+	#snapshot{
+		display:inline-block;
+		margin: 1%;
+	}
+
+	#address {
+		flex:2;
+		padding:1em;
+	}
+
+	#signature{
+		flex:2;
+		padding:1em;
+		text-align: center;
+	}
+
+	#content {
+
+
+	}
+
+	input:invalid {
+		background-color:red;
+	}
+
+
+#myForm, #myForm2 {
+	margin: 0 auto;
+
+
+padding:1em;
+}
+
+     #myForm input:invalid { background-color: lightPink;}
+     #myForm input:valid { background-color:lightGreen; }
+     #myForm input:required {border: 2px solid red;}
+     #myForm input:optional {border: 2px solid green;}
+     #myForm label { display: inline-block; width:250px;text-align: left; font-weight:bolder; font-size:250%;}	
+
+     #myForm input {color:#000;font-size:250%;}
+
+     #myForm2 input:invalid { background-color: lightPink;}
+     #myForm2 input:valid { background-color:lightGreen; }
+     #myForm2 input:required {border: 2px solid red;}
+     #myForm2 input:optional {border: 2px solid green;}
+     #myForm2 label { display: inline-block; width:250px;text-align: left; font-weight:bolder;font-size:250%;}	
+
+     #myForm2 input {color:#000;font-size:250%;}     
+
+
+#agevalues {
+	font-size:250%;
+}
+
+     #navigation {clear:both;}
+
+
+     #myCanvas {
+     	border: 1px solid #000;
+     }
+
+     #mapPic {
+     	float:left;
+     	margin: 1em 0 0 1em;
+     	border:2px solid red;
+     }
+
+     #addressData {
+     	margin-right:1em;
+     	float:left;
+
+     }
+
+     #msg {
+     	padding:0;
+     	margin:0;
+     }
+
+     #address {
+     	padding:0;
+     	margin:0;
+     	border-bottom:1px solid red;
+     }     
+
+
+     #mySignature {
+
+     	border:2px solid blue;
+     }
+
+
+
+#apply {
+	background-color:transparent;
+	border-color:#fff;
+}
+
+#results {
+	border:1px solid #000;
+	width:600px;
+	height:300px;
+	margin:1em auto;
+	text-align:left;
+	line-height: 1.2;
+
+}
+
+     /* progress bar */
+
+progress {
+	width: 400px;
+	height: 14px;
+	margin: 0.5em auto 1em auto;
+	display: block;
+	/* Important Thing */
+	-webkit-appearance: none;
+	border: 1px solid #fff;
+}
+
+/* All good till now. Now we'll style the background */
+progress::-webkit-progress-bar {
+	background: black;
+	border-radius: 50px;
+	padding: 2px;
+	box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Now the value part */
+progress::-webkit-progress-value {
+	border-radius: 50px;
+	box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.4);
+	background:
+		-webkit-linear-gradient(45deg, transparent, transparent 33%, rgba(0, 0, 0, 0.1) 33%, rgba(0, 0, 0, 0.1) 66%, transparent 66%),
+		-webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.2)),
+		-webkit-linear-gradient(left, #ba7448, #c4672d);
+	
+	/* Looks great, now animating it */
+	background-size: 25px 14px, 100% 100%, 100% 100%;
+	-webkit-animation: move 5s linear 0 infinite;
+}
+
+/* That's it! Now let's try creating a new stripe pattern and animate it using animation and keyframes properties  */
+
+@-webkit-keyframes move {
+	0% {background-position: 0px 0px, 0 0, 0 0}
+	100% {background-position: -100px 0px, 0 0, 0 0}
+}
+
+/* Prefix-free was creating issues with the animation */
+
+
+/* placeholder */
+
+::-webkit-input-placeholder {
+   color: #aaa;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #aaa;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #aaa;
+}
+
+:-ms-input-placeholder {  
+   color: #aaa;
+}

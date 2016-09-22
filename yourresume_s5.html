@@ -1,0 +1,84 @@
+<html>
+<head>
+
+	<title>Your Resume</title>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	<script src="yourresume.js"></script>
+	<script src="google.js"></script>
+	<script src="navigation.js"></script>
+	<script src="lstor.js"></script>
+	<link rel="stylesheet" type="text/css" href="yourresume.css" media="screen" />
+
+
+	
+</head>
+<body onload="initialize();">
+
+	<header><h1>Your Resume</h1></header>
+	<div id="content">
+		<div id="mainData">
+			<h2>Step 5: your Address</h2>
+
+
+
+			<form name="myForm2" id="myForm2">
+
+					<div id="mapNav">
+					<button type="button" type="button" onclick="getLocation()"><img src="img/ic_location_on_black_24dp_1x.png" /></button>
+					</div>
+
+					<div id="addressData">
+						<p>
+							<label for="address1">Street</label>
+							<input id="address1" name="street_address" type="text" required />
+						</p>
+						<p>
+							<label for="address2">Suburb</label>
+							<input id="address2" name="suburb" type="text" required />
+						</p>
+						<p>
+							<label for="address3">State</label>
+							<input id="address3" name="state" type="text" required />
+						</p>      
+						<p>
+							<label for="postcode">Postcode</label>
+							<input id="postcode" name="postcode" type="number" min="1001" max="999999" required />
+						</p>
+						<p>
+							<label for="country">Country</label>
+							<input id="country" name="country" type="text" required />
+						</p>
+					</div>
+
+						<div id="mapPic">
+					<p id="msg"></p>
+					<p id="address"></p>
+
+
+					<div id="map_canvas" style="width: 700px; height: 350px"></div>	
+
+					</div>			
+
+
+
+
+			</form>
+		</div>
+
+		<div id="navigation">
+			<div id="progress">
+	    		<progress id="pr" value="5" min="0" max="8">
+			</div>
+
+			<button id="previous" type="button" title="Previous" onclick="startF('s5','s4');"><img src="img/ic_navigate_before_black_24dp_2x.png" /></button>
+
+			<button id="apply" type="button" title="Apply changes" onclick="saveChanges('s5');"><img src="img/ic_check_circle_white_24dp_2x.png" /></button>
+
+			<button id="next" type="button" title="Next" onclick="startF('s5','s6');"><img src="img/ic_navigate_next_black_24dp_2x.png" /></button>
+		</div>
+
+
+
+
+	</body>
+	</html>

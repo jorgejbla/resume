@@ -1,0 +1,122 @@
+<html>
+<head>
+
+	<title>Your Resume</title>
+	<!-- script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script -->
+	<script src="yourresume.js"></script>
+	<script src="navigation.js"></script>
+	<script src="lstor.js"></script>
+	<link rel="stylesheet" type="text/css" href="yourresume.css" media="screen" />
+
+
+	
+</head>
+<body onload="init();">
+
+	<header><h1>Your Resume</h1></header>
+	<div id="content">
+		<div id="mainData">
+			<h2>Step 4: your Picture</h2>
+
+
+
+			<form name="myForm" id="myForm">
+
+				<div id="camZone">
+
+					<div id="camNav">
+						<button id="startCam" type="button" onclick="startWebcam();" title="Start WebCam"><img src="img/ic_videocam_black_24dp_1x.png" /></button>
+						<button id="stopCam" type="button" onclick="stopWebcam();" title="Stop WebCam"><img src="img/ic_videocam_off_black_24dp_1x.png" /></button> 
+						<button id="takePic" type="button" onclick="snapshot();" title="Take Snapshot"><img src="img/ic_camera_enhance_black_24dp_1x.png" /></button> 						
+					</div>
+
+					<div id="camara">
+						<video onclick="snapshot(this);" width="500" height="375" id="video" controls autoplay></video>
+					</div>
+					<div id="snapshot">
+						<canvas width="500" height="375" id="myCanvas"></canvas>  
+					</div>
+				</div>					
+
+
+
+
+			</form>
+		</div>
+
+		<div id="navigation">
+			<div id="progress">
+	    		<progress id="pr" value="4" min="0" max="8">
+			</div>
+
+			<button id="previous" type="button" title="Previous" onclick="startF('s4','s3');"><img src="img/ic_navigate_before_black_24dp_2x.png" /></button>
+
+			<button id="apply" type="button" title="Apply changes" onclick="saveChanges('s4');"><img src="img/ic_check_circle_white_24dp_2x.png" /></button>
+
+			<button id="next" type="button" title="Next" onclick="startF('s4','s5');"><img src="img/ic_navigate_next_black_24dp_2x.png" /></button>
+		</div>
+
+
+<script id="jsbin-javascript">
+//--------------------
+// GET USER MEDIA CODE
+//--------------------
+navigator.getUserMedia = ( navigator.getUserMedia ||
+	navigator.webkitGetUserMedia ||
+	navigator.mozGetUserMedia ||
+	navigator.msGetUserMedia);
+
+var video;
+var webcamStream;
+
+function startWebcam() {
+	if (navigator.getUserMedia) {
+		navigator.getUserMedia (
+
+      // constraints
+      {
+      	video: true,
+      	audio: false
+      },
+
+      // successCallback
+      function(localMediaStream) {
+      	video = document.querySelector('video');
+      	video.src = window.URL.createObjectURL(localMediaStream);
+      	webcamStream = localMediaStream;
+      },
+
+      // errorCallback
+      function(err) {
+      	console.log("The following error occured: " + err);
+      }
+      );
+	} else {
+		console.log("getUserMedia not supported");
+	}  
+}
+
+function stopWebcam() {
+	webcamStream.stop();
+}
+//---------------------
+// TAKE A SNAPSHOT CODE
+//---------------------
+var canvas, ctx, canvasSig, ctxSig;
+
+function init() {
+	canvas = document.getElementById("myCanvas");
+	ctx = canvas.getContext('2d');
+
+}
+
+function snapshot() {
+   // Draws current image from the video element into the canvas
+   ctx.drawImage(video, 0,0, canvas.width, canvas.height);
+}
+
+</script>
+
+
+	</body>
+	</html>

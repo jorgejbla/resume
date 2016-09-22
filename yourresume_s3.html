@@ -1,0 +1,66 @@
+<html>
+<head>
+
+	<title>Your Resume</title>
+	<!-- script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script -->
+	<script src="yourresume.js"></script>
+	<script src="navigation.js"></script>
+	<script src="lstor.js"></script>
+	<link rel="stylesheet" type="text/css" href="yourresume.css" media="screen" />
+
+
+	
+</head>
+<body>
+
+	<header><h1>Your Resume</h1></header>
+	<div id="content">
+		<div id="mainData">
+			<h2>Step 3: your Company</h2>
+
+
+
+			<form name="myForm" id="myForm">
+
+				<div id="dropPhoto">
+						<div id="droppableZone" ondragenter="dragEnterHandler(event)" ondrop="dropHandler(event)"
+						ondragover="dragOverHandler(event)"   ondragleave="dragLeaveHandler(event)">
+						Drag your company's logo.
+						<ol id="droppedFiles"></ol>
+
+
+
+
+
+					</div>
+
+
+											<div id="thumbPhoto">
+							<output id="list"></output> 
+						</div>
+
+				<p>
+					<label for="yourCompany">Company: </label>
+					<input type="text" id="yourCompany" name="yourCompany" placeholder="IBM" autofocus required/>	
+				</p>						
+
+
+
+
+			</form>
+		</div>
+
+		<div id="navigation">
+			<div id="progress">
+	    		<progress id="pr" value="3" min="0" max="8">
+			</div>
+
+			<button id="previous" type="button" title="Previous" onclick="startF('s3','s2');"><img src="img/ic_navigate_before_black_24dp_2x.png" /></button>
+
+			<button id="apply" type="button" title="Apply changes" onclick="saveChanges('s3');"><img src="img/ic_check_circle_white_24dp_2x.png" /></button>
+
+			<button id="next" type="button" title="Next" onclick="startF('s3','s4');"><img src="img/ic_navigate_next_black_24dp_2x.png" /></button>
+		</div>
+
+	</body>
+	</html>
