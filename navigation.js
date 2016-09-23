@@ -16,3 +16,10 @@
 document.location.href = url +".html";
 }
 
+
+ function gotoF (goto) {
+  var url ="yourresume_"+goto;
+  document.location.href = url +".html";
+}
+
+

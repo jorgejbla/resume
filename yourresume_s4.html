@@ -11,7 +11,7 @@
 
 	
 </head>
-<body onload="init();">
+<body onload="init();restoreForm('s4');">
 
 	<header><h1>Your Resume</h1></header>
 	<div id="content">
@@ -45,6 +45,16 @@
 		</div>
 
 		<div id="navigation">
+			<div id="subnavigation">
+				<button id="s1" type="button" title="Step1" onclick="gotoF('s1');">1</button>
+				<button id="s2" type="button" title="Step2" onclick="gotoF('s2');">2</button>
+				<button id="s3" type="button" title="Step3" onclick="gotoF('s3');">3</button>
+				<button id="s4" type="button" title="Step4" onclick="gotoF('s4');">4</button>
+				<button id="s5" type="button" title="Step5" onclick="gotoF('s5');">5</button>
+				<button id="s6" type="button" title="Step6" onclick="gotoF('s6');">6</button>
+				<button id="s7" type="button" title="Step7" onclick="gotoF('s7');">7</button>
+				<button id="s8" type="button" title="Step8" onclick="gotoF('s8');">8</button>
+			</div>			
 			<div id="progress">
 	    		<progress id="pr" value="4" min="0" max="8">
 			</div>
