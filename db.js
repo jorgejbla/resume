@@ -67,7 +67,7 @@
 
 
 
-    function addAResume(callback) {
+    function addAResume(callback, callback2) {
        // 1 - get a transaction on the "resumes" object store
        // in readwrite, as we are going to insert a new object
        var transaction = db.transaction(["resumes"], "readwrite");
@@ -95,6 +95,7 @@
        request.onsuccess = function(event) {
            console.log("Resume with userid= " + event.target.result + " added.");
            loadResumes(callback);
+           callback2();
        };
        // the insertion led to an error (object already in the store,
        // for example)
