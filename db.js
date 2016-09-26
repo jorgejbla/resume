@@ -1,7 +1,7 @@
 
     var db; // the database connection we need to initialize
      
-    function createDatabase() {
+    function createDatabase(callback) {
       if(!window.indexedDB) {
          window.alert("Your browser does not support a stable version of IndexedDB");
       }
@@ -59,6 +59,7 @@
          console.log("request.onsuccess, database opened, now we can add / remove / look for data in it!");
          // The result is the database itself
          db = event.target.result;
+         loadResumes(callback);
       };
     } // end of function createDatabase
 
@@ -66,7 +67,7 @@
 
 
 
-    function addAResume() {
+    function addAResume(callback) {
        // 1 - get a transaction on the "resumes" object store
        // in readwrite, as we are going to insert a new object
        var transaction = db.transaction(["resumes"], "readwrite");
@@ -74,7 +75,7 @@
        // This callback is called after transaction has been completely
        // executed (committed)
        transaction.oncomplete = function(event) {
-           alert("All done!");
+           //alert("All done!");
        };
        // This callback is called in case of error (rollback)
        transaction.onerror = function(event) {
@@ -93,10 +94,37 @@
        // The insertion was ok
        request.onsuccess = function(event) {
            console.log("Resume with userid= " + event.target.result + " added.");
+           loadResumes(callback);
        };
        // the insertion led to an error (object already in the store,
        // for example)
        request.onerror = function(event) {
            console.log("request.onerror, could not insert resume, errcode = " + event.target.error.name);
        };
+    }
+
+    function loadResumes(callback) {
+       var objectStore = db.transaction("resumes").objectStore("resumes");
+       var listResumes = new Array();
+       objectStore.openCursor().onsuccess = function(event) {
+         // we enter this callback for each object in the store
+         // The result is the cursor itself
+         var cursor = event.target.result;
+         if (cursor) {
+           //alert("Name for Userid " + cursor.key + " is " + cursor.value);
+           // Calling continue on the cursor will result in this callback
+           // being called again if there are other objects in the store
+           listResumes.push(cursor.value);
+           cursor.continue();
+         } else {
+           //callback(listResumes);
+           var tableResumenes = document.getElementById("tableResumes");
+           if (tableResumenes != null) {
+            document.getElementById("mainData").removeChild(tableResumenes);
+           }
+           
+           document.getElementById("mainData").appendChild(callback(listResumes));
+
+         }
+      }; // end of onsuccess...
     }

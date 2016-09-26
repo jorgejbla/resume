@@ -7,12 +7,43 @@ var _table_ = document.createElement('table'),
  function buildHtmlTable(arr) {
      var table = _table_.cloneNode(false),
          columns = addAllColumnHeaders(arr, table);
+     table.setAttribute("id","tableResumes");
      for (var i=0, maxi=arr.length; i < maxi; ++i) {
          var tr = _tr_.cloneNode(false);
          for (var j=0, maxj=columns.length; j < maxj ; ++j) {
              var td = _td_.cloneNode(false);
                  cellValue = arr[i][columns[j]];
-             td.appendChild(document.createTextNode(arr[i][columns[j]] || ''));
+                 if (typeof cellValue === 'object') {
+                    var listAdress = new Array();
+                    listAdress.push(cellValue);
+                    
+                       var subtable = buildHtmlTable(listAdress);
+                       
+                       td.appendChild(subtable);
+                       tr.appendChild(td);
+                       continue;
+                 }
+                else {
+                    if( typeof cellValue === 'undefined' || cellValue === null ){
+                        td.appendChild(document.createTextNode(''));
+                    }
+                    else {
+                        if (cellValue.startsWith("data:image")) {
+                            var img = document.createElement('img');
+                            img.setAttribute("src",cellValue);
+                            img.setAttribute("width","64");
+                            img.setAttribute("height","64");
+                            td.appendChild(img);
+                        }
+                        else {
+
+                            td.appendChild(document.createTextNode(arr[i][columns[j]] || ''));
+                        }
+
+
+                     }
+                }
+  
              tr.appendChild(td);
          }
          table.appendChild(tr);

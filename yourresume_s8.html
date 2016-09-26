@@ -7,12 +7,13 @@
 	<script src="navigation.js"></script>
 	<script src="lstor.js"></script>
 	<script src="db.js"></script>
+	<script src="table.js"></script>
 	<link rel="stylesheet" type="text/css" href="yourresume.css" media="screen" />
 
 
 	
 </head>
-<body onload="createDatabase();">
+<body onload="createDatabase(buildHtmlTable);">
 
 	<header><span id="resultWorker"></span><h1>Your Resume</h1></header>
 	<div id="content">
@@ -22,7 +23,7 @@
 					Create the resume by clicking on Finish button:
 
 
-			<button id="finishResume" type="button" title="Save Resume" onclick="addAResume('');">FINISH</button>
+			<button id="finishResume" type="button" title="Save Resume" onclick="addAResume(buildHtmlTable);">FINISH</button>
 
 
 

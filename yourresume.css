@@ -338,3 +338,28 @@ progress::-webkit-progress-value {
 ::-ms-backdrop {
   /* properties */
 }
+
+
+#tableResumes {
+	border:1px solid blue;
+	padding:0;
+	margin:1em auto;
+	display:inline-table;
+
+}
+
+#tableResumes th {
+	font-weight: bolder;
+	background-color: blue;
+	color:#fff;
+	margin:0;
+	padding:0;
+	border-bottom: 2px solid #ccc;
+}
+
+#tableResumes td {
+	padding:0.1em;
+	background-color: #fff;
+	
+
+}
