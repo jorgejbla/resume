@@ -14,7 +14,7 @@
 </head>
 <body onload="initialize();restoreForm('s5');getLocation();">
 
-	<header><h1>Your Resume</h1></header>
+	<header><span id="resultWorker"></span><h1>Your Resume</h1></header>
 	<div id="content">
 		<div id="mainData">
 			<h2>Step 5: your Address</h2>
@@ -88,7 +88,19 @@
 		</div>
 
 
+<script>
+	if(window.Worker){
+	    var worker = new Worker('worker.js');
+	    worker.onmessage = function (event) {
+	        document.getElementById('resultWorker').textContent = event.data;
+		};
 
+	}
+	else {
+      // the browser does not support web workers
+        alert("Sorry, your browser does not support Web Workers");
+	}
+</script>
 
 	</body>
 	</html>

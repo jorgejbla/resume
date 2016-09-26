@@ -93,6 +93,15 @@
               console.log(files.length + ' file(s) have been dropped:\n' + filenames);
               readFilesAndDisplayPreview(files);
            }
+
+
+           function handleFileSelect(evt) {
+              var files = evt.target.files; // FileList object
+              // do something with files... why not call
+              // readFilesAndDisplayPreview!
+             readFilesAndDisplayPreview(files);
+           }
+           
            function readFilesAndDisplayPreview(files) {
               // Loop through the FileList and render image files as thumbnails.
               for (var i = 0, f; f = files[i]; i++) {

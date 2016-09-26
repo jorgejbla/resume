@@ -23,3 +23,29 @@ document.location.href = url +".html";
 }
 
 
+
+function onWidthChange(mq) {
+	var bodyElem = document.querySelector("body");
+    if(mq.matches) {
+        bodyElem.style.backgroundColor='transparent';
+    } else {
+        bodyElem.style.backgroundColor='red';
+    }
+}
+
+
+function checkMediaChange() {
+	// First off, check we support the 'matchMedia' API
+	if(window.matchMedia) {
+	    var mq = window.matchMedia("(min-width: 960px)");
+	    // Listen for dimension changes
+	    mq.addListener(onWidthChange);
+	    // As soon as the window loads, fire it off
+	    onWidthChange(mq);
+	}
+
+}
+
+
+
+

@@ -10,9 +10,9 @@
 
 	
 </head>
-<body>
+<body onload="checkMediaChange();">
 
-	<header><h1>Your Resume</h1></header>
+	<header><span id="resultWorker"></span><h1>Your Resume</h1></header>
 	<div id="content">
 		<div id="progress">
 
@@ -30,6 +30,19 @@
 			</form>
 		</div>
 
+<script>
+	if(window.Worker){
+	    var worker = new Worker('worker.js');
+	    worker.onmessage = function (event) {
+	        document.getElementById('resultWorker').textContent = event.data;
+		};
+
+	}
+	else {
+      // the browser does not support web workers
+        alert("Sorry, your browser does not support Web Workers");
+	}
+</script>
 
 
 	</body>

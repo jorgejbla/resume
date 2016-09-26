@@ -32,7 +32,7 @@ function resetChanges(step) {
 function saveChanges(step) {
 
 	if (step == 's1') {
-
+		var userid = document.querySelector("#yourUserId");
 		var name = document.querySelector("#yourName");
 		var email = document.querySelector("#email");
 		var tel = document.querySelector("#tel");
@@ -42,7 +42,8 @@ function saveChanges(step) {
 
 
 
-	    var mainInfoObject = {'name': name.value
+	    var mainInfoObject = {'userid': userid.value
+	    						,'name': name.value
 	    						, 'email': email.value
 	    						, 'tel': tel.value
 	    						, 'url': url.value};
@@ -53,7 +54,9 @@ function saveChanges(step) {
 		// Retrieve the object from storage
 		var retrievedObject = JSON.parse(localStorage.getItem('mainInfo'));
 		    
-		console.log(retrievedObject.name 
+		console.log(retrievedObject.userid
+					+ " " 
+					+ retrievedObject.name 
 					+ " " 
 					+ retrievedObject.email 
 					+ " " 
@@ -195,7 +198,7 @@ function restoreForm(step) {
 	console.log(stepApply);
 
 	if (step == 's1') {
-
+		var userid = document.querySelector("#yourUserId");
 		var name = document.querySelector("#yourName");
 		var email = document.querySelector("#email");
 		var tel = document.querySelector("#tel");
@@ -209,7 +212,9 @@ function restoreForm(step) {
 			var retrievedObject = JSON.parse(localStorage.getItem('mainInfo'));
 			
 			if (retrievedObject != null && retrievedObject != 'undefined') {
-				console.log("Objeto: "+retrievedObject.name 
+				console.log("Objeto: "+retrievedObject.userid 
+						+ " "
+						+ retrievedObject.name 
 						+ " " 
 						+ retrievedObject.email 
 						+ " " 
@@ -218,6 +223,7 @@ function restoreForm(step) {
 						+ retrievedObject.url);
 
 
+				userid.value = retrievedObject.userid;
 				name.value = retrievedObject.name;
 				email.value = retrievedObject.email;
 				tel.value = retrievedObject.tel;

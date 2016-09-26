@@ -20,8 +20,8 @@
 
 
 	div#droppableZone {
-		height: 64px;
-		width: 128px;
+		height: 200px;
+		width: 600px;
 		border: 4px dashed #000;
 		background-color: #eaeaea;
 		text-align: center;
@@ -156,6 +156,15 @@
 
 
 padding:1em;
+}
+
+#resultWorker {
+	display:block;
+	position:absolute;
+	top: 15px;
+	left:15px;
+	color:#fff;
+	font-weight:bolder;
 }
 
      #myForm input:invalid { background-color: lightPink;}

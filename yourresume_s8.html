@@ -6,18 +6,26 @@
 	<script src="yourresume.js"></script>
 	<script src="navigation.js"></script>
 	<script src="lstor.js"></script>
+	<script src="db.js"></script>
 	<link rel="stylesheet" type="text/css" href="yourresume.css" media="screen" />
 
 
 	
 </head>
-<body>
+<body onload="createDatabase();">
 
-	<header><h1>Your Resume</h1></header>
+	<header><span id="resultWorker"></span><h1>Your Resume</h1></header>
 	<div id="content">
 		<div id="mainData">
-			<h2>Step 8: your Knowledge</h2>
+			<h2>Final Step: Save Resume</h2>
 			<form name="myForm" id="myForm">
+					Create the resume by clicking on Finish button:
+
+
+			<button id="finishResume" type="button" title="Save Resume" onclick="addAResume('');">FINISH</button>
+
+
+
 
 			</form>
 		</div>
@@ -43,6 +51,18 @@
 
 			<button id="next" type="button" title="Next" onclick="startF('s8','final');"><img src="img/ic_navigate_next_black_24dp_2x.png" /></button>
 		</div>
+<script>
+	if(window.Worker){
+	    var worker = new Worker('worker.js');
+	    worker.onmessage = function (event) {
+	        document.getElementById('resultWorker').textContent = event.data;
+		};
 
+	}
+	else {
+      // the browser does not support web workers
+        alert("Sorry, your browser does not support Web Workers");
+	}
+</script>
 	</body>
 	</html>
