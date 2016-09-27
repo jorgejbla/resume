@@ -36,8 +36,18 @@ var _table_ = document.createElement('table'),
                             td.appendChild(img);
                         }
                         else {
-
-                            td.appendChild(document.createTextNode(arr[i][columns[j]] || ''));
+                            if (j === 0) {
+                                
+                                var link = document.createElement('a');
+                                link.setAttribute("href","yourresume_final.html?userid="+arr[i][columns[j]]);
+                                link.setAttribute("title","view detail");
+                                link.appendChild(document.createTextNode(arr[i][columns[j]] || ''));
+                                td.appendChild(link);
+                            }
+                            else {
+                                td.appendChild(document.createTextNode(arr[i][columns[j]] || ''));
+                            }
+                            
                         }
 
 

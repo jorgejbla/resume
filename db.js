@@ -1,7 +1,17 @@
 
+
+
     var db; // the database connection we need to initialize
+
+function getUrlVars() {
+var vars = {};
+var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+vars[key] = value;
+});
+return vars;
+}
      
-    function createDatabase(callback) {
+    function createDatabase(callback, callback2) {
       if(!window.indexedDB) {
          window.alert("Your browser does not support a stable version of IndexedDB");
       }
@@ -59,7 +69,15 @@
          console.log("request.onsuccess, database opened, now we can add / remove / look for data in it!");
          // The result is the database itself
          db = event.target.result;
-         loadResumes(callback);
+
+         if (callback2 != null) {
+          callback(callback2);
+         }
+         else if (callback != null) {
+         loadResumes(callback); 
+         }
+
+         
       };
     } // end of function createDatabase
 
@@ -129,3 +147,95 @@
          }
       }; // end of onsuccess...
     }
+
+
+    function getResume(callback) {
+       if(db === null || typeof(db) == 'undefined') {
+        db = createDatabase(null);
+         //alert('Database must be opened first, please click the Create ResumeDB Database first');
+         //return;
+       }
+       var transaction = db.transaction(["resumes"], "readwrite");
+
+       // Do something when all the data is added to the database.
+       transaction.oncomplete = function(event) {
+         console.log("All done!");
+       };
+       transaction.onerror = function(event) {
+         console.log("transaction.onerror errcode=" + event.target.error.name);
+       };
+       var objectStore = transaction.objectStore("resumes");
+       // Init a resume object with just the ssn property initialized
+       // from the form
+       var resumeToSearch={};
+
+        var userIdParam = getUrlVars()["userid"];
+
+       resumeToSearch.userid = userIdParam;
+       console.log('Looking for resume for userid =' + resumeToSearch.userid);
+       // Look for the resume corresponding to the ssn in the object
+       // store
+       var request = objectStore.get(resumeToSearch.userid);
+       request.onsuccess = function(event) {
+         console.log("Resume found" + event.target.result.name);
+         callback(event.target.result);
+       };
+     
+       request.onerror = function(event) {
+         alert("request.onerror, could not find resume, errcode = " + event.target.error.name 
+          + ".The userid is not in the Database");
+      };
+    }
+
+
+    function fillResume (mainData) {
+        var mdName = document.querySelector("#mdName");
+        mdName.innerHTML=mainData.name;
+
+        var mdTel = document.querySelector("#mdTel");
+        mdTel.innerHTML=mainData.tel;
+
+        var mdAge = document.querySelector("#mdAge");
+        mdAge.innerHTML=mainData.age;        
+
+        var mdUrl = document.querySelector("#mdUrl");
+        var mdUrlLink = document.querySelector("#mdUrlLink");
+        mdUrlLink.setAttribute("href", mainData.url);
+        mdUrl.innerHTML=mainData.url;
+
+        var mdEmail = document.querySelector("#mdEmail");
+        var mdEmailLink = document.querySelector("#mdEmailLink");
+        mdEmailLink.setAttribute("href", "mailto:"+mainData.email);
+        mdEmail.innerHTML=mainData.email;
+
+        var mdCompanyName = document.querySelector("#mdCompanyName");
+        mdCompanyName.innerHTML=mainData.companyName;
+
+
+        var mdPicture = document.querySelector("#mdPicture");
+        mdPicture.setAttribute("src",mainData.picture);
+
+        var mdSignature = document.querySelector("#mdSignature");
+        mdSignature.setAttribute("src",mainData.signature);        
+
+        var mdCompanyLogo = document.querySelector("#mdCompanyLogo");
+        mdCompanyLogo.setAttribute("src",mainData.companyLogo);  
+
+        var mdAddress1 = document.querySelector("#mdAddress1");
+        mdAddress1.innerHTML=mainData.address.address1;
+
+        var mdAddress2 = document.querySelector("#mdAddress2");
+        mdAddress2.innerHTML=mainData.address.address2;
+
+        var mdAddress3 = document.querySelector("#mdAddress3");
+        mdAddress3.innerHTML=mainData.address.address3;
+
+        var mdPostcode = document.querySelector("#mdPostcode");
+        mdPostcode.innerHTML=mainData.postcode;
+
+        var mdCountry = document.querySelector("#mdCountry");
+        mdCountry.innerHTML=mainData.country;        
+    }
+
+
+

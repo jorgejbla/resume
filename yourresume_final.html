@@ -5,12 +5,13 @@
 	<!-- script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 	<script src="yourresume.js"></script !-->
 	<script src="navigation.js"></script>
+	<script src="db.js"></script>
 	<link rel="stylesheet" type="text/css" href="yourresume.css" media="screen" />
-
+	<meta charset="utf-8" />
 
 	
 </head>
-<body>
+<body onload="createDatabase(getResume,fillResume);">
 
 	<header><h1>Your Resume</h1></header>
 	<div id="content">
@@ -19,15 +20,61 @@
 		</div>
 		<div id="mainData">
 			<h2>Create your Resume... the HTML5 way!</h2>
-			<form name="myForm" id="myForm">
+			
+			<div id="mainLeft">
+				<div id="mainPicture"><img id="mdPicture" src="picture.png"/></div>
+				<div id="mainSignature"><img id="mdSignature" src="hola.png" width="350" height="250" /></div>
+			</div>
 
-<button type="button" id="start" title="start" onclick="startF('main','s1');"><img src="img/ic_play_circle_outline_black_24dp_2x.png" />Start</button>
 
-				<div id="navigation">
-					
+			<div id="mainRight">
+				<h3><span id="mdName">Your name</span></h3>
+				<div id="ageData"><span id="mdAge">age</span> years old</div>
+				<div id="worksFor">Works for <span id="mdCompanyName">company</span><img id="mdCompanyLogo" src="picture.png" width="64" height="64"/></div>
+				<div id="contactInfo">
+					<div id="yourAddressData">
+					<h4>Your Address</h4>
+							<p>
+								<span id="mdAddress1">Street</span>
+								
+							</p>
+							<p>
+								<span id="mdAddress2">Suburb</span>
+								
+							</p>
+							<p>
+								<span id="mdAddress3">State</span>
+								
+							</p>      
+							<p>
+								
+								<span id="mdPostcode">Postcode</span>
+							</p>
+							<p>
+								<span id="mdCountry">Country</span>
+							</p>
+
+					</div>
+					<div id="yourContactData">
+					<h4>Your Contact</h4>
+							<p>
+								<a href="" id="mdEmailLink"><span id="mdEmail">Email</span></a>
+								
+							</p>
+							<p>
+								<span id="mdTel">Telephone</span>
+								
+							</p>
+							<p>
+								<a href="" id="mdUrlLink"><span id="mdUrl">Website</span></a>
+								
+							</p>      
+			
+					</div>
+				
 				</div>
-
-			</form>
+			</div>
+			
 		</div>
 
 
