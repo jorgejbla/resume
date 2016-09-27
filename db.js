@@ -231,10 +231,10 @@ return vars;
         mdAddress3.innerHTML=mainData.address.address3;
 
         var mdPostcode = document.querySelector("#mdPostcode");
-        mdPostcode.innerHTML=mainData.postcode;
+        mdPostcode.innerHTML=mainData.address.postcode;
 
         var mdCountry = document.querySelector("#mdCountry");
-        mdCountry.innerHTML=mainData.country;        
+        mdCountry.innerHTML=mainData.address.country;        
     }
 
 
