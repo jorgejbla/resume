@@ -211,6 +211,9 @@ return vars;
         var mdCompanyName = document.querySelector("#mdCompanyName");
         mdCompanyName.innerHTML=mainData.companyName;
 
+        var mdIntro = document.querySelector("#mdIntro");
+        mdIntro.innerHTML=mainData.intro;        
+
 
         var mdPicture = document.querySelector("#mdPicture");
         mdPicture.setAttribute("src",mainData.picture);

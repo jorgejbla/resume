@@ -154,6 +154,25 @@ function saveChanges(step) {
 			localStorage.setItem('mainInfo', JSON.stringify(retrievedObject));
 		}			
 	}	
+	else if (step == 's7') {
+
+		var intro = document.querySelector("#final_span");
+
+		if (intro != null) {
+					// Retrieve the object from storage
+			var retrievedObject = JSON.parse(localStorage.getItem('mainInfo'));
+
+			if (retrievedObject != null) {
+				retrievedObject.intro = intro.innerHTML;
+				console.log("intro  "+intro.innerHTML);
+
+				// Store the object as a JSON String
+				localStorage.setItem('mainInfo', JSON.stringify(retrievedObject));
+			}
+		}
+	}
+
+
 
 
 	var applyButton = document.querySelector("#apply");
@@ -335,6 +354,19 @@ function restoreForm(step) {
 		        imageObj.src = retrievedObject.signature;
 			}
 		}			
+	}	
+	else if (step == 's7') {
+
+		var intro = document.querySelector("#saved_intro");
+
+		if (intro != null) {
+					// Retrieve the object from storage
+			var retrievedObject = JSON.parse(localStorage.getItem('mainInfo'));
+
+			if (retrievedObject != null) {
+				intro.innerHTML = retrievedObject.intro;
+			}
+		}
 	}		
 
 
@@ -354,4 +386,17 @@ function resetResume() {
 		var step = "s"+i;
 		localStorage.setItem(step+'Apply', false);
 	};
+}
+
+
+function playIntro() {
+	var mdIntro = document.querySelector("#mdIntro");
+	if (mdIntro != null) {
+		var textIntro = mdIntro.innerHTML;
+		console.log ("texto "+ mdIntro);
+	    var u = new SpeechSynthesisUtterance(textIntro);
+	    u.lang = 'es-ES';
+	    speechSynthesis.speak(u);
+	}
+
 }

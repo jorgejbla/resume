@@ -11,7 +11,7 @@
 
 	
 </head>
-<body onload="init();">
+<body onload="restoreForm('s7');">
 
 	<header><span id="resultWorker"></span><h1>Your Resume</h1></header>
 	<div id="content">
@@ -21,6 +21,7 @@
 
 
 			<br style="clear:both" />
+
 
 
  <div class="browser-landing" id="main">
@@ -55,17 +56,25 @@
             Web Speech API is not supported by this browser. Upgrade to <a href="//www.google.com/chrome">Chrome</a> version 25 or later.
           </p>
         </div>
+
+ 
+
         <div id="div_start">
           <button id="start_button" onclick="startButton(event)" style="display: inline-block;"><img alt="Start" id="start_img" src="https://www.google.com/intl/en/chrome/assets/common/images/content/mic.gif"></button>
         </div>
         <div id="results">
           <span class="final" id="final_span"></span> <span class="interim" id="interim_span"></span>
         </div>
+      
         <div class="compact marquee" id="div_language">
           <select id="select_language" onchange="updateCountry()">
             <option value="0">Afrikaans</option><option value="1">Bahasa Indonesia</option><option value="2">Bahasa Melayu</option><option value="3">Català</option><option value="4">Čeština</option><option value="5">Dansk</option><option value="6">Deutsch</option><option value="7">English</option><option value="8">Español</option><option value="9">Euskara</option><option value="10">Filipino</option><option value="11">Français</option><option value="12">Galego</option><option value="13">Hrvatski</option><option value="14">IsiZulu</option><option value="15">Íslenska</option><option value="16">Italiano</option><option value="17">Lietuvių</option><option value="18">Magyar</option><option value="19">Nederlands</option><option value="20">Norsk bokmål</option><option value="21">Polski</option><option value="22">Português</option><option value="23">Română</option><option value="24">Slovenščina</option><option value="25">Slovenčina</option><option value="26">Suomi</option><option value="27">Svenska</option><option value="28">Tiếng Việt</option><option value="29">Türkçe</option><option value="30">Ελληνικά</option><option value="31">български</option><option value="32">Pусский</option><option value="33">Српски</option><option value="34">Українська</option><option value="35">한국어</option><option value="36">中文</option><option value="37">日本語</option><option value="38">हिन्दी</option><option value="39">ภาษาไทย</option></select>&nbsp;&nbsp; <select id="select_dialect" style="visibility: visible;">
             <option value="en-AU">Australia</option><option value="en-CA">Canada</option><option value="en-IN">India</option><option value="en-NZ">New Zealand</option><option value="en-ZA">South Africa</option><option value="en-GB">United Kingdom</option><option value="en-US">United States</option></select>
         </div>
+
+        <div id="resultsSaved">
+          <span id="saved_intro"></span>
+        </div>         
       </div>
     </div>
     			

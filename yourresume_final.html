@@ -6,6 +6,7 @@
 	<script src="yourresume.js"></script !-->
 	<script src="navigation.js"></script>
 	<script src="db.js"></script>
+	<script src="lstor.js"></script>
 	<link rel="stylesheet" type="text/css" href="yourresume.css" media="screen" />
 	<meta charset="utf-8" />
 
@@ -29,8 +30,19 @@
 
 			<div id="mainRight">
 				<h3><span id="mdName">Your name</span></h3>
-				<div id="ageData"><span id="mdAge">age</span> years old</div>
-				<div id="worksFor">Works for <span id="mdCompanyName">company</span><img id="mdCompanyLogo" src="picture.png" width="64" height="64"/></div>
+
+				<div id="ageWork">
+					<div id="ageData"><span id="mdAge">age</span> years old</div>
+					<div id="worksFor">Works for <span id="mdCompanyName">company</span><img id="mdCompanyLogo" src="picture.png" width="64" height="64"/></div>
+				</div>
+
+				<div id="introduction">
+					<button id="playIntroButton" type="button" title="Play intro" onclick="playIntro();">
+						<img src="img/ic_play_circle_outline_black_24dp_2x.png" />
+					</button>
+					<p><span id="mdIntro">Intro</span></p>	
+				</div>
+
 				<div id="contactInfo">
 					<div id="yourAddressData">
 					<h4>Your Address</h4>

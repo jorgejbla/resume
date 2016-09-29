@@ -345,6 +345,7 @@ progress::-webkit-progress-value {
 	padding:0;
 	margin:1em auto;
 	display:inline-table;
+	overflow:auto;
 
 }
 
@@ -444,4 +445,42 @@ float:left;
 #mainRight {
 float:left;
 margin-left:3em;
+}
+
+#resultsSaved {
+	    background-color: transparent;
+    display: block;
+    border-bottom: 2px solid blue;
+}
+
+#resultsSaved span {
+	display:block;
+
+}
+
+#introduction {
+	clear:both;
+	float:right;
+	margin:0;
+	padding:0.5em;
+	background-color:#eaeaea;
+	width:100%;
+}
+
+#introduction button{
+	float:left;
+}
+
+#introduction p{
+	float:left;
+	margin-left:40px;
+	line-height:1.2;
+}
+
+#ageWork {
+	clear:both;
+	float:left;
+	margin:0;
+	padding:0.5em;
+	width:100%;
 }
