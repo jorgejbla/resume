@@ -19,7 +19,23 @@
 		<div id="progress">
 
 		</div>
-		<div id="mainData">
+		<div id="mainData" itemscope itemtype="http://schema.org/Person">
+			<p id="editButtons">
+					<button id="launchFullScreenButton" type="button" title="Launch full screen" onclick="launchIntoFullscreen(document.documentElement);">
+						<img src="img/ic_tv_black_24dp_2x.png" />
+					</button>
+
+
+					<button id="editFieldsButton" type="button" title="Edit fields" onclick="editFields();">
+						<img src="img/ic_border_color_black_24dp_2x.png" />
+					</button>
+					<button id="editAllButton" type="button" title="Edit all" onclick="editAll();">
+						<img src="img/ic_create_black_24dp_2x.png" />
+					</button>
+					<button id="cancelEditionButton" type="button" title="Cancel Edition" onclick="cancelEdition();">
+						<img src="img/ic_block_black_24dp_2x.png" />
+					</button>										
+			</p>
 			
 			
 			<div id="mainLeft">
@@ -29,11 +45,11 @@
 
 
 			<div id="mainRight">
-				<h3><span id="mdName">Your name</span></h3>
+				<h3 itemprop="name"><span id="mdName">Your name</span><span style="display:none" id="mdUserId"></span></h3>
 
 				<div id="ageWork">
 					<div id="ageData"><span id="mdAge">age</span> years old</div>
-					<div id="worksFor">Works for <span id="mdCompanyName">company</span><img id="mdCompanyLogo" src="picture.png" width="64" height="64"/></div>
+					<div id="worksFor">Works for <span itemprop="affiliation" id="mdCompanyName">company</span><img id="mdCompanyLogo" src="picture.png" width="64" height="64"/></div>
 				</div>
 
 				<div id="introduction">
@@ -44,26 +60,28 @@
 				</div>
 
 				<div id="contactInfo">
-					<div id="yourAddressData">
+					<div id="yourAddressData" itemprop="address" itemscope
+    itemtype="http://schema.org/PostalAddress">
 					<h4>Your Address</h4>
 							<p>
-								<span id="mdAddress1">Street</span>
+								<span id="mdAddress1" itemprop="streetAddress">Street</span>
 								
 							</p>
 							<p>
-								<span id="mdAddress2">Suburb</span>
+								<span id="mdAddress2" itemprop="addressLocality">Suburb</span>
 								
 							</p>
 							<p>
-								<span id="mdAddress3">State</span>
+								<span id="mdAddress3" itemprop="addressRegion">State</span>
 								
 							</p>      
 							<p>
 								
-								<span id="mdPostcode">Postcode</span>
+								<span id="mdPostcode" itemprop="postalCode">Postcode</span>
 							</p>
-							<p>
-								<span id="mdCountry">Country</span>
+							<p itemprop="addressCountry" itemscope
+          itemtype="http://schema.org/Country">
+								<span id="mdCountry" itemprop="name">Country</span>
 							</p>
 
 					</div>
@@ -78,7 +96,7 @@
 								
 							</p>
 							<p>
-								<a href="" id="mdUrlLink"><span id="mdUrl">Website</span></a>
+								<a href="" id="mdUrlLink"><span itemprop="url" id="mdUrl">Website</span></a>
 								
 							</p>      
 			
@@ -88,8 +106,5 @@
 			</div>
 			
 		</div>
-
-
-
 	</body>
 	</html>

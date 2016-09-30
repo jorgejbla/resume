@@ -484,3 +484,25 @@ margin-left:3em;
 	padding:0.5em;
 	width:100%;
 }
+
+span[contenteditable="true"] {
+   border: 2px dashed blue;
+   background-color:lightblue;
+}
+
+#editButtons {
+	float:left;
+	width:100%;
+	margin:0;
+}
+
+#editButtons button {
+	float:right;
+	margin-right:5px;
+}
+
+#editButtons button#launchFullScreenButton {
+	float:left;
+	margin-left:5px;
+}
+

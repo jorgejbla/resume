@@ -12,7 +12,8 @@
 </head>
 <body onload="checkMediaChange();">
 
-	<header><span id="resultWorker"></span><h1>Your Resume</h1></header>
+	<header><span id="resultWorker"></span><h1>Your Resume</h1>
+	</header>
 	<div id="content">
 		<div id="progress">
 
@@ -21,7 +22,7 @@
 			<h2>Create your Resume... the HTML5 way!</h2>
 			<form name="myForm" id="myForm">
 
-<button type="button" id="start" title="start" onclick="launchIntoFullscreen(document.documentElement);startF('main','s1');"><img src="img/ic_play_circle_outline_black_24dp_2x.png" />Start</button>
+<button type="button" id="start" title="start" onclick="startF('main','s1');"><img src="img/ic_play_circle_outline_black_24dp_2x.png" />Start</button>
 
 				<div id="navigation">
 					
@@ -42,6 +43,12 @@
       // the browser does not support web workers
         alert("Sorry, your browser does not support Web Workers");
 	}
+
+
+	document.addEventListener("fullscreenchange", exitFullscreen);
+	document.addEventListener("webkitfullscreenchange", exitFullscreen);
+	document.addEventListener("mozfullscreenchange", exitFullscreen);
+	document.addEventListener("MSFullscreenChange", exitFullscreen);	
 </script>
 
 

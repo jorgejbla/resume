@@ -189,6 +189,10 @@ return vars;
 
 
     function fillResume (mainData) {
+
+        var mdUserId = document.querySelector("#mdUserId");
+        mdUserId.innerHTML=mainData.userid;
+
         var mdName = document.querySelector("#mdName");
         mdName.innerHTML=mainData.name;
 
@@ -237,8 +241,58 @@ return vars;
         mdPostcode.innerHTML=mainData.address.postcode;
 
         var mdCountry = document.querySelector("#mdCountry");
-        mdCountry.innerHTML=mainData.address.country;        
+        mdCountry.innerHTML=mainData.address.country;    
+
+
+
     }
 
 
+
+function editFields() {
+
+        document.querySelector("#mdName").contentEditable = true;
+        document.querySelector("#mdTel").contentEditable = true;
+        document.querySelector("#mdAge").contentEditable = true;
+        document.querySelector("#mdUrl").contentEditable = true;
+        document.querySelector("#mdEmail").contentEditable = true;
+        document.querySelector("#mdCompanyName").contentEditable = true;
+        document.querySelector("#mdIntro").contentEditable = true;
+        document.querySelector("#mdAddress1").contentEditable = true;
+        document.querySelector("#mdAddress2").contentEditable = true;
+        document.querySelector("#mdAddress3").contentEditable = true;
+        document.querySelector("#mdPostcode").contentEditable = true;
+        document.querySelector("#mdCountry").contentEditable = true;
+
+
+}
+
+
+function cancelEdition() {
+
+        document.designMode = 'off';
+
+        document.body.style.backgroundColor = "transparent";
+
+        document.querySelector("#mdName").contentEditable = false;
+        document.querySelector("#mdTel").contentEditable = false;
+        document.querySelector("#mdAge").contentEditable = false;
+        document.querySelector("#mdUrl").contentEditable = false;
+        document.querySelector("#mdEmail").contentEditable = false;
+        document.querySelector("#mdCompanyName").contentEditable = false;
+        document.querySelector("#mdIntro").contentEditable = false;
+        document.querySelector("#mdAddress1").contentEditable = false;
+        document.querySelector("#mdAddress2").contentEditable = false;
+        document.querySelector("#mdAddress3").contentEditable = false;
+        document.querySelector("#mdPostcode").contentEditable = false;
+        document.querySelector("#mdCountry").contentEditable = false;
+}
+
+function editAll() {
+
+        document.designMode = 'on';
+
+        document.body.style.backgroundColor = "lightblue";
+
+}
 
