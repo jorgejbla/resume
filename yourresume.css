@@ -354,12 +354,11 @@ progress::-webkit-progress-value {
 	background-color: blue;
 	color:#fff;
 	margin:0;
-	padding:0;
-	border-bottom: 2px solid #ccc;
+	padding:0.4em;
 }
 
 #tableResumes td {
-	padding:0.1em;
+	padding:0.2em;
 	background-color: #fff;
 	
 
