@@ -12,7 +12,7 @@
 
 	
 </head>
-<body onload="initialize();restoreForm('s5');">
+<body onload="restoreForm('s5');">
 
 	<header><span id="resultWorker"></span><h1>Your Resume</h1></header>
 	<div id="content">
@@ -89,6 +89,26 @@
 
 
 <script>
+	var geocoder;
+      var map;
+      var infowindow = new google.maps.InfoWindow();
+      var marker;
+      
+      function initialize() {
+        displayCoords=document.getElementById("msg");
+        myAddress = document.getElementById("address");
+        
+        geocoder = new google.maps.Geocoder();
+        var latlng = new google.maps.LatLng(5, -5);
+        var mapOptions = {
+          zoom: 8,
+          center: latlng,
+          mapTypeId: 'roadmap'
+        }
+        map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions); 
+      }
+
+
 	if(window.Worker){
 	    var worker = new Worker('worker.js');
 	    worker.onmessage = function (event) {
@@ -100,6 +120,8 @@
       // the browser does not support web workers
         alert("Sorry, your browser does not support Web Workers");
 	}
+
+	initialize();
 </script>
 
 	</body>
