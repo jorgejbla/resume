@@ -341,11 +341,12 @@ progress::-webkit-progress-value {
 
 
 #tableResumes {
-	border:1px solid blue;
+	
 	padding:0;
 	margin:1em auto;
 	display:inline-table;
-	overflow:auto;
+	overflow:scroll;
+	background-color:darkblue;
 
 }
 
@@ -355,12 +356,13 @@ progress::-webkit-progress-value {
 	color:#fff;
 	margin:0;
 	padding:0.4em;
+	text-align:center;
 }
 
 #tableResumes td {
 	padding:0.2em;
 	background-color: #fff;
-	
+	text-align:center;
 
 }
 
