@@ -73,3 +73,16 @@ function exitFullscreen() {
     document.msExitFullscreen();
   }
 }
+
+function resetResume() {
+  localStorage.setItem('mainInfo', null);
+  for (var i = 1; i < 8; i++) {
+    var step = "s"+i;
+    localStorage.setItem(step+'Apply', false);
+  };
+}
+
+function createNewResume(){
+  resetResume();
+  gotoF('s1');
+}

@@ -320,6 +320,12 @@ return vars;
 
     function fillLocalStorage (mainData) {
       alert("cargando " +mainData.userid);
+      localStorage.setItem('mainInfo', JSON.stringify(mainData));
+
+      for (var i = 1; i < 8; i++) {
+        var step = "s"+i;
+        localStorage.setItem(step+'Apply', true);
+      };      
     }
 
 
