@@ -12,55 +12,7 @@ var _table_ = document.createElement('table'),
          var tr = _tr_.cloneNode(false);
          var userid = "";
 
-         if (!issubtable) {
-            console.log(userid);
-            
-            var td = _td_.cloneNode(false);
-            var link = document.createElement('a');
-            var img = document.createElement('img');
-            img.setAttribute("src","img/ic_delete_black_24dp_1x.png");
-            img.setAttribute("width","24");
-            img.setAttribute("height","24");
-
-            link.setAttribute("href","#");
-            link.setAttribute("title","delete resume");
-            link.setAttribute("onclick","deleteResume('" + userid + "')");
-            link.appendChild(img);
-            td.appendChild(link);
-            tr.appendChild(td);
-
-            td = _td_.cloneNode(false);
-            link = document.createElement('a');
-            img = document.createElement('img');
-            img.setAttribute("src","img/ic_create_black_24dp_1x.png");
-            img.setAttribute("width","24");
-            img.setAttribute("height","24");
-
-            link.setAttribute("href","#");
-            link.setAttribute("title","load resume");
-            link.setAttribute("onclick","loadResume('" + userid + "')");
-            link.appendChild(img);
-            td.appendChild(link);
-            tr.appendChild(td);   
-
-            td = _td_.cloneNode(false);
-            link = document.createElement('a');
-            img = document.createElement('img');
-            img.setAttribute("src","img/ic_contacts_black_24dp_1x.png");
-            img.setAttribute("width","24");
-            img.setAttribute("height","24");
-
-            link.setAttribute("href","#");
-            link.setAttribute("title","detail resume");
-            link.setAttribute("onclick","detailResume('" + userid + "')");
-            link.appendChild(img);
-            td.appendChild(link);
-            tr.appendChild(td); 
-
-         }
-         else {
-            
-         }         
+        
          
          for (var j=0, maxj=columns.length; j < maxj ; ++j) {
              var td = _td_.cloneNode(false);
@@ -116,7 +68,55 @@ var _table_ = document.createElement('table'),
              tr.appendChild(td);
          }
 
-         
+          if (!issubtable) {
+            console.log(userid);
+            
+            var td = _td_.cloneNode(false);
+            var link = document.createElement('a');
+            var img = document.createElement('img');
+            img.setAttribute("src","img/ic_delete_black_24dp_1x.png");
+            img.setAttribute("width","24");
+            img.setAttribute("height","24");
+
+            link.setAttribute("href","#");
+            link.setAttribute("title","delete resume");
+            link.setAttribute("onclick","removeAResume(buildHtmlTable,resetResume,'" + userid + "')");
+            link.appendChild(img);
+            td.appendChild(link);
+            tr.appendChild(td);
+
+            td = _td_.cloneNode(false);
+            link = document.createElement('a');
+            img = document.createElement('img');
+            img.setAttribute("src","img/ic_create_black_24dp_1x.png");
+            img.setAttribute("width","24");
+            img.setAttribute("height","24");
+
+            link.setAttribute("href","#");
+            link.setAttribute("title","load resume");
+            link.setAttribute("onclick","loadResume(fillLocalStorage,'" + userid + "')");
+            link.appendChild(img);
+            td.appendChild(link);
+            tr.appendChild(td);   
+
+            td = _td_.cloneNode(false);
+            link = document.createElement('a');
+            img = document.createElement('img');
+            img.setAttribute("src","img/ic_contacts_black_24dp_1x.png");
+            img.setAttribute("width","24");
+            img.setAttribute("height","24");
+
+            link.setAttribute("href","#");
+            link.setAttribute("title","detail resume");
+            link.setAttribute("href","yourresume_final.html?userid=" + userid);
+            link.appendChild(img);
+            td.appendChild(link);
+            tr.appendChild(td); 
+
+         }
+         else {
+            
+         }         
          
 
          table.appendChild(tr);
@@ -132,17 +132,7 @@ var _table_ = document.createElement('table'),
      var columnSet = [],
          tr = _tr_.cloneNode(false);
 
-        var th2 = _th_.cloneNode(false);
-     th2.appendChild(document.createTextNode("D"));
-     tr.appendChild(th2);
-
-        th2 = _th_.cloneNode(false);
-     th2.appendChild(document.createTextNode("L"));
-     tr.appendChild(th2);
-
-        th2 = _th_.cloneNode(false);
-     th2.appendChild(document.createTextNode("R"));
-     tr.appendChild(th2);          
+      
 
 
      for (var i=0, l=arr.length; i < l; i++) {
@@ -158,6 +148,22 @@ var _table_ = document.createElement('table'),
              }
          }
      }
+
+    if (arr.length > 0) {
+        var th2 = _th_.cloneNode(false);
+         th2.appendChild(document.createTextNode("D"));
+         tr.appendChild(th2);
+
+            th2 = _th_.cloneNode(false);
+         th2.appendChild(document.createTextNode("L"));
+         tr.appendChild(th2);
+
+            th2 = _th_.cloneNode(false);
+         th2.appendChild(document.createTextNode("R"));
+         tr.appendChild(th2);  
+    }
+      
+
      table.appendChild(tr);
      return columnSet;
  }

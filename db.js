@@ -122,6 +122,38 @@ return vars;
        };
     }
 
+
+
+
+    function removeAResume(callback, callback2, userIdParam) {
+       if(db === null || typeof(db) == 'undefined') {
+        db = createDatabase(null);
+         //alert('Database must be opened first, please click the Create ResumeDB Database first');
+         //return;
+       }
+       var transaction = db.transaction(["resumes"], "readwrite");
+       // Do something when all the data is added to the database.
+       transaction.oncomplete = function(event) {
+          console.log("All done!");
+       };
+       transaction.onerror = function(event) {
+          console.log("transaction.onerror errcode=" + event.target.error.name);
+       };
+       var objectStore = transaction.objectStore("resumes");
+       //var userIdParam = getUrlVars()["userid"];
+       alert('removing resume with userid '+userIdParam);
+       var request = objectStore.delete(userIdParam);
+       request.onsuccess = function(event) {
+          console.log("Resume removed.");
+           loadResumes(callback);
+           callback2();          
+       };
+       request.onerror = function(event) {
+          alert("request.onerror, could not remove userid, errcode = " + event.target.error.name + ". The userid does not exist in the Database");
+       };
+    }
+
+
     function loadResumes(callback) {
        var objectStore = db.transaction("resumes").objectStore("resumes");
        var listResumes = new Array();
@@ -188,6 +220,44 @@ return vars;
     }
 
 
+    function loadResume(callback, userIdParam) {
+       if(db === null || typeof(db) == 'undefined') {
+        db = createDatabase(null);
+         //alert('Database must be opened first, please click the Create ResumeDB Database first');
+         //return;
+       }
+       var transaction = db.transaction(["resumes"], "readwrite");
+
+       // Do something when all the data is added to the database.
+       transaction.oncomplete = function(event) {
+         console.log("All done!");
+       };
+       transaction.onerror = function(event) {
+         console.log("transaction.onerror errcode=" + event.target.error.name);
+       };
+       var objectStore = transaction.objectStore("resumes");
+       // Init a resume object with just the ssn property initialized
+       // from the form
+       var resumeToSearch={};
+
+        //var userIdParam = getUrlVars()["userid"];
+
+       resumeToSearch.userid = userIdParam;
+       console.log('Looking for resume for userid =' + resumeToSearch.userid);
+       // Look for the resume corresponding to the ssn in the object
+       // store
+       var request = objectStore.get(resumeToSearch.userid);
+       request.onsuccess = function(event) {
+         console.log("Resume found" + event.target.result.name);
+         callback(event.target.result);
+       };
+     
+       request.onerror = function(event) {
+         alert("request.onerror, could not find resume, errcode = " + event.target.error.name 
+          + ".The userid is not in the Database");
+      };
+    }
+
     function fillResume (mainData) {
 
         var mdUserId = document.querySelector("#mdUserId");
@@ -245,6 +315,11 @@ return vars;
 
 
 
+    }
+
+
+    function fillLocalStorage (mainData) {
+      alert("cargando " +mainData.userid);
     }
 
 
