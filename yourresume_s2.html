@@ -8,15 +8,45 @@
 	<script src="lstor.js"></script>
 	<link rel="stylesheet" type="text/css" href="yourresume.css" media="screen" />
 	<meta charset="utf-8" />
+	<link href="https://fonts.googleapis.com/css?family=Eczar" rel="stylesheet"> 
 
 	
 </head>
-<body onload="restoreForm('s2');printValue('age','agevalues');"
+<body onload="restoreForm('s2');printValue('age','agevalues');">
 
-	<header><span id="resultWorker"></span><h1>Your Resume</h1></header>
+	<header><h1>Your Resume </h1>
+		<nav>
+			<ul>
+				<li><a  class="selected" href="yourresume_s1.html">New Resume</a></li>
+				<li><a href="yourresume_list.html">View Resumes</a></li>
+			</ul>
+		</nav>
+		<span id="resultWorker"></span>
+	</header>
 	<div id="content">
 		<div id="mainData">
-			<h2>Step 2: your Age</h2>
+			<div id="nav2">
+				<h2>Step 2: your Age</h2>
+				<div id="navigation">
+					<div id="progress">
+			    		<progress id="pr" value="2" min="0" max="8">
+					</div>					
+					<button id="previous" type="button" title="Previous" onclick="startF('s2','s1');"><img src="img/ic_navigate_before_black_24dp_2x.png" /></button>
+					<div id="subnavigation">
+						<button id="s1" type="button" title="Step1" onclick="gotoF('s1');">1</button>
+						<button id="s2" type="button" title="Step2" onclick="gotoF('s2');">2</button>
+						<button id="s3" type="button" title="Step3" onclick="gotoF('s3');">3</button>
+						<button id="s4" type="button" title="Step4" onclick="gotoF('s4');">4</button>
+						<button id="s5" type="button" title="Step5" onclick="gotoF('s5');">5</button>
+						<button id="s6" type="button" title="Step6" onclick="gotoF('s6');">6</button>
+						<button id="s7" type="button" title="Step7" onclick="gotoF('s7');">7</button>
+						<button id="s8" type="button" title="Step8" onclick="gotoF('s8');">8</button>
+					</div>
+					<button id="next" type="button" title="Next" onclick="startF('s2','s3');"><img src="img/ic_navigate_next_black_24dp_2x.png" /></button>
+					<button id="apply" type="button" title="Apply changes" onclick="saveChanges('s2');"><img src="img/ic_check_circle_white_24dp_2x.png" /></button>					
+				</div>
+			</div>			
+			
 			<form name="myForm" id="myForm">
 				<p>
 					<label for="age">Age: </label> 
@@ -26,28 +56,7 @@
 			</form>
 		</div>
 
-		<div id="navigation">
-			<div id="subnavigation">
-				<button id="s1" type="button" title="Step1" onclick="gotoF('s1');">1</button>
-				<button id="s2" type="button" title="Step2" onclick="gotoF('s2');">2</button>
-				<button id="s3" type="button" title="Step3" onclick="gotoF('s3');">3</button>
-				<button id="s4" type="button" title="Step4" onclick="gotoF('s4');">4</button>
-				<button id="s5" type="button" title="Step5" onclick="gotoF('s5');">5</button>
-				<button id="s6" type="button" title="Step6" onclick="gotoF('s6');">6</button>
-				<button id="s7" type="button" title="Step7" onclick="gotoF('s7');">7</button>
-				<button id="s8" type="button" title="Step8" onclick="gotoF('s8');">8</button>
-			</div>
-			
-			<div id="progress">
-	    		<progress id="pr" value="2" min="0" max="8">
-			</div>
 
-			<button id="previous" type="button" title="Previous" onclick="startF('s2','s1');"><img src="img/ic_navigate_before_black_24dp_2x.png" /></button>
-
-			<button id="apply" type="button" title="Apply changes" onclick="saveChanges('s2');"><img src="img/ic_check_circle_white_24dp_2x.png" /></button>
-
-			<button id="next" type="button" title="Next" onclick="startF('s2','s3');"><img src="img/ic_navigate_next_black_24dp_2x.png" /></button>
-		</div>
 <script>
 	if(window.Worker){
 	    var worker = new Worker('worker.js');

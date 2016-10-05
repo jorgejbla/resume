@@ -200,6 +200,7 @@ function paintSubNavigation(step) {
 
 			if (step == but.id) {
 				but.style.color="red";
+				but.style.borderColor="red";
 			}
 		};
 	}	

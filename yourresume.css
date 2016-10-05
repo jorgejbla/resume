@@ -1,5 +1,6 @@
 	body {
-		font-family: Verdana, Arial, sans-serif;
+		font-family: 'Eczar', serif;
+		font-size:120%;
 		padding:0;
 		margin:0;
 		text-align:center;
@@ -11,11 +12,21 @@
 		align-self: stretch;
 	}
 
-	h2 {
+	#nav2 {
+		clear:left;
+		float:left;
+		width:100%;
 		border-bottom:2px solid blue;
-		color:blue;
-		margin:0;
-		padding: 0.4em 0;
+		background-color:darkblue;
+		color:#fff;
+	}
+
+	#nav2 h2 {
+		color:#fff;
+		margin:0.2em;
+		padding: 0;
+		text-align:left;
+		float:left;
 	}
 
 
@@ -46,19 +57,21 @@
 
 
 	header {
-		display:flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		flex:1;	
 		margin:0;
+		float:left;
+		width: 100%;
+		margin:0;
+		padding:0;
+		background-color:blue;
 	}
 
 	h1 {
-		flex:1;
-		background-color:blue;
+		
 		color:#fff;
-		padding:0.2em;
-		margin:0;
+		padding:0;
+		margin:0.2em;
+		text-align:left;
+		float:left;
 	}
 
 	#left{
@@ -81,14 +94,39 @@
 		padding:0;
 	}
 
-	#navigation {
-		background-color: blue;
+	#nav2 #navigation {
+		background-color: transparent;
 		padding: 1em 0 ;
-		position: fixed;
+		/*position: fixed;
 		bottom:0;
-		left:0;
-		width: 100%;
+		left:0;*/
+		float:right;
 	}
+
+	#nav2 #navigation #subnavigation {
+		float:left;
+		margin:0 1em 0 0;
+		padding:0;
+	}
+
+	#nav2 #navigation #subnavigation button {
+		padding:0.2em 0.5em;
+		margin: 0 0.2em;
+		font-size:120%;
+		color:#fff;
+	}	
+
+	#nav2 #navigation #progress {
+		float:left;
+		margin:0 1em 0 0;
+		padding:0;		
+	}	
+
+	#nav2 #navigation button {
+		float:left;
+		margin:0;
+		padding:0;		
+	}	
 
 	#picture{
 		flex:2;
@@ -152,7 +190,8 @@
 
 
 #myForm, #myForm2 {
-	margin: 0 auto;
+	margin: 1em auto;
+	clear:both;
 
 
 padding:1em;
@@ -160,35 +199,74 @@ padding:1em;
 
 #resultWorker {
 	display:block;
-	position:absolute;
-	top: 15px;
-	left:15px;
+	font-size:90%;
+	float:right;
 	color:#fff;
+	margin:1em;
+	padding:0;
+}
+
+header nav {
+	float:right;
+	margin:0.8em 0;
+	padding:0;
+}
+
+header nav ul{
+	float:left;
+	margin:0 0.5em 0 0;
+	padding:0;
+	list-style-type: none;
+
+}
+
+header nav ul li{
+	float:left;
+	margin:0 1em 0 0;
+	padding:0;
+
+
+}
+
+header nav ul li a{
+	display:block;
+border:3px solid #fff;
+	padding:4px;
+	text-decoration: none;
+	background-color:#fff;
+	color:#000;
+		border-radius:20px;
+		width:100%;
+box-shadow: 4px 4px 2px #000;
+}
+
+header nav ul li a.selected{
 	font-weight:bolder;
+	color:#fff;
+	border-color:#fff;
+	background-color: blue
 }
 
      #myForm input:invalid { background-color: lightPink;}
      #myForm input:valid { background-color:lightGreen; }
      #myForm input:required {border: 2px solid red;}
      #myForm input:optional {border: 2px solid green;}
-     #myForm label { display: inline-block; width:250px;text-align: left; font-weight:bolder; font-size:250%;}	
+     #myForm label { display: inline-block; width:250px;text-align: left; font-weight:bolder; font-size:150%;}	
 
-     #myForm input {color:#000;font-size:250%;}
+     #myForm input {color:#000;font-size:150%;}
 
      #myForm2 input:invalid { background-color: lightPink;}
      #myForm2 input:valid { background-color:lightGreen; }
      #myForm2 input:required {border: 2px solid red;}
      #myForm2 input:optional {border: 2px solid green;}
-     #myForm2 label { display: inline-block; width:250px;text-align: left; font-weight:bolder;font-size:250%;}	
+     #myForm2 label { display: inline-block; width:250px;text-align: left; font-weight:bolder;font-size:150%;}	
 
-     #myForm2 input {color:#000;font-size:250%;}     
+     #myForm2 input {color:#000;font-size:150%;}     
 
 
 #agevalues {
 	font-size:250%;
 }
-
-     #navigation {clear:both;}
 
 
      #myCanvas {

@@ -1,0 +1,49 @@
+<html>
+<head>
+
+	<title>Your Resume</title>
+	<!-- script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script -->
+	<script src="yourresume.js"></script>
+	<script src="navigation.js"></script>
+	<script src="lstor.js"></script>
+	<script src="db.js"></script>
+	<script src="table.js"></script>
+	<link rel="stylesheet" type="text/css" href="yourresume.css" media="screen" />
+	<meta charset="utf-8" />
+	<link href="https://fonts.googleapis.com/css?family=Eczar" rel="stylesheet"> 
+
+	
+</head>
+<body onload="createDatabase(buildHtmlTable);">
+
+	<header><h1>Your Resume </h1>
+		<nav>
+			<ul>
+				<li><a href="yourresume_s1.html">New Resume</a></li>
+				<li><a class="selected" href="yourresume_list.html">View Resumes</a></li>
+			</ul>
+		</nav>
+		<span id="resultWorker"></span>
+	</header>
+	<div id="content">
+		<div id="mainData">
+			<div id="nav2">
+				<h2>List of resumes</h2>
+			</div>
+		</div>
+
+<script>
+	if(window.Worker){
+	    var worker = new Worker('worker.js');
+	    worker.onmessage = function (event) {
+	        document.getElementById('resultWorker').textContent = event.data;
+		};
+
+	}
+	else {
+      // the browser does not support web workers
+        alert("Sorry, your browser does not support Web Workers");
+	}
+</script>
+	</body>
+	</html>

@@ -9,18 +9,30 @@
 	<script src="lstor.js"></script>
 	<link rel="stylesheet" type="text/css" href="yourresume.css" media="screen" />
 	<meta charset="utf-8" />
+	<link href="https://fonts.googleapis.com/css?family=Eczar" rel="stylesheet"> 
 
 	
 </head>
 <body onload="createDatabase(getResume,fillResume);">
 
-	<header><h1>Your Resume</h1></header>
+	<header><h1>Your Resume </h1>
+		<nav>
+			<ul>
+				<li><a href="yourresume_s1.html">New Resume</a></li>
+				<li><a href="yourresume_list.html">View Resumes</a></li>
+			</ul>
+		</nav>
+		<span id="resultWorker"></span>
+	</header>
 	<div id="content">
 		<div id="progress">
 
 		</div>
 		<div id="mainData" itemscope itemtype="http://schema.org/Person">
-			<p id="editButtons">
+<div id="nav2">
+				<h2>Resume detail</h2>
+				<div id="navigation">
+								<p id="editButtons">
 					<button id="launchFullScreenButton" type="button" title="Launch full screen" onclick="launchIntoFullscreen(document.documentElement);">
 						<img src="img/ic_tv_black_24dp_2x.png" />
 					</button>
@@ -36,6 +48,12 @@
 						<img src="img/ic_block_black_24dp_2x.png" />
 					</button>										
 			</p>
+
+
+					
+				</div>
+			</div>
+
 			
 			
 			<div id="mainLeft">
