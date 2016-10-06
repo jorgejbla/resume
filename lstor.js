@@ -390,7 +390,7 @@ function resetResume() {
 }
 
 
-function getVoice(speechSynthesis, language) {
+function getVoice(language) {
   if(typeof speechSynthesis === 'undefined') {
     return;
   }
@@ -411,11 +411,11 @@ function playIntro() {
 	if (mdIntro != null) {
 		var textIntro = mdIntro.innerHTML;
 		console.log ("texto "+ mdIntro);
-	    var u = new SpeechSynthesis(textIntro);
+	    var u = new SpeechSynthesisUtterance(textIntro);
 	    //u.lang = 'es-ES';
 	    u.pitch = 1;
   		u.rate = 1;
-  		u.voice = getVoice(u, 'es-ES');
+  		u.voice = getVoice('es-ES');
 	    speechSynthesis.speak(u);
 	}
 
