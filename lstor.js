@@ -409,6 +409,7 @@ function getVoice(language) {
 
 function playIntro() {
 	var mdIntro = document.querySelector("#mdIntro");
+	console.log("playIntro");
 	if (mdIntro != null) {
 		var textIntro = mdIntro.innerHTML;
 		console.log ("texto "+ mdIntro);
