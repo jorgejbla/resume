@@ -1,3 +1,15 @@
+  var voices;
+
+  if(typeof speechSynthesis === 'undefined') {
+    
+  }
+  else {
+	voices = speechSynthesis.getVoices();
+  }
+
+  
+
+
 function resetChanges(step) {
 
 	if (step == 's6') {
@@ -391,11 +403,7 @@ function resetResume() {
 
 
 function getVoice(language) {
-  if(typeof speechSynthesis === 'undefined') {
-    return;
-  }
 
-  var voices = speechSynthesis.getVoices();
 
   for(i = 0; i < voices.length ; i++) {
     if(voices[i].lang === language) {
