@@ -390,13 +390,32 @@ function resetResume() {
 }
 
 
+function getVoice(speechSynthesis, language) {
+  if(typeof speechSynthesis === 'undefined') {
+    return;
+  }
+
+  var voices = speechSynthesis.getVoices();
+
+  for(i = 0; i < voices.length ; i++) {
+    if(voices[i].lang === language) {
+      return voices[i];
+    }
+
+  }
+}
+
+
 function playIntro() {
 	var mdIntro = document.querySelector("#mdIntro");
 	if (mdIntro != null) {
 		var textIntro = mdIntro.innerHTML;
 		console.log ("texto "+ mdIntro);
 	    var u = new SpeechSynthesisUtterance(textIntro);
-	    u.lang = 'es-ES';
+	    //u.lang = 'es-ES';
+	    u.pitch = 1;
+  		u.rate = 1;
+  		u.voice = getVoice(u, 'es-ES');
 	    speechSynthesis.speak(u);
 	}
 
