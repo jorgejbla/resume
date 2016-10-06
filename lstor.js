@@ -411,7 +411,7 @@ function playIntro() {
 	if (mdIntro != null) {
 		var textIntro = mdIntro.innerHTML;
 		console.log ("texto "+ mdIntro);
-	    var u = new SpeechSynthesisUtterance(textIntro);
+	    var u = new SpeechSynthesis(textIntro);
 	    //u.lang = 'es-ES';
 	    u.pitch = 1;
   		u.rate = 1;
