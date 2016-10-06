@@ -124,5 +124,15 @@
 			</div>
 			
 		</div>
+<script>
+  var voices;
+
+  if(typeof speechSynthesis === 'undefined') {
+    
+  }
+  else {
+	voices = speechSynthesis.getVoices();
+  }	
+ </script>	
 	</body>
 	</html>
