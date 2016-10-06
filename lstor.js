@@ -399,6 +399,7 @@ function getVoice(language) {
 
   for(i = 0; i < voices.length ; i++) {
     if(voices[i].lang === language) {
+    	alert(voices[i]);
       return voices[i];
     }
 
@@ -412,7 +413,7 @@ function playIntro() {
 		var textIntro = mdIntro.innerHTML;
 		console.log ("texto "+ mdIntro);
 	    var u = new SpeechSynthesisUtterance(textIntro);
-	    //u.lang = 'es-ES';
+	    u.lang = 'es-ES';
 	    u.pitch = 1;
   		u.rate = 1;
   		u.voice = getVoice('es-ES');
