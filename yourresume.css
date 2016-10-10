@@ -471,14 +471,14 @@ h3 {
 
 #ageData {
 	font-size:200%;
-	margin: 0.5em 3em;
+	margin: auto;
 	padding:0 auto;
 	float:left;
 }
 
 #worksFor {
 	font-size:200%;
-	margin: 0.5em 3em;
+	margin: auto;
 	padding:0 auto;
 	float:right;
 }
